@@ -81,19 +81,15 @@ export default function SimpleTable() {
           <Table className={classes.table} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align="center">Name</TableCell>
-                <TableCell align="center">Department</TableCell>
-                <TableCell align="center">Gender</TableCell>
-                <TableCell align="center">Dob</TableCell>
-              </TableRow>
+                <TableCell align="center">First Name</TableCell>
+                <TableCell align="center">Last Name</TableCell>
+               </TableRow>
             </TableHead>
             <TableBody>
               {data?.map(row => (
                 <TableRow key={row.name}>
-                  <TableCell align="center">{row.name}</TableCell>
-                  <TableCell align="center">{row.department}</TableCell>
-                  <TableCell align="center">{row.gender}</TableCell>
-                  <TableCell align="center">{row.dob}</TableCell>
+                  <TableCell align="center">{row.firstName}</TableCell>
+                  <TableCell align="center">{row.lastName}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

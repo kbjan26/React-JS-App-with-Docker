@@ -39,14 +39,11 @@ export default function AddEmployee() {
   const classes = useStyles();
   const [firstLoad, setLoad] = React.useState(true);
 
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date("1998-04-02T21:11:54")
-  );
-  const [fname, setFname] = React.useState("");
-  const [lname, setLname] = React.useState("");
+  const [firstName, setfirstName] = React.useState("");
+  const [lastName, setlastName] = React.useState("");
 
-  const handleFnameChange = event => setFname(event.target.value);
-  const handleLnameChange = event => setLname(event.target.value);
+  const handlefirstNameChange = event => setfirstName(event.target.value);
+  const handlelastNameChange = event => setlastName(event.target.value);
 
 
   const [message, setMessage] = React.useState("Nothing saved in the session");
@@ -70,10 +67,10 @@ export default function AddEmployee() {
   }
 
   const handleSubmit = variables => {
-    const toInput = { fname, lname };
+    const toInput = { firstName, lastName };
     sampleFunc(toInput);
-    setFname("");
-    setLname("");
+    setfirstName("");
+    setlastName("");
   };
 
   if (firstLoad) {
@@ -84,9 +81,6 @@ export default function AddEmployee() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <GroupIcon />
-        </Avatar>
         <Typography component="h1" variant="h5">
           Employee Add
         </Typography>
@@ -97,12 +91,12 @@ export default function AddEmployee() {
                 variant="outlined"
                 required
                 fullWidth
-                id="fname"
-                value={fname}
+                id="firstName"
+                value={firstName}
                 label="First Name"
-                name="fname"
-                autoComplete="fname"
-                onChange={handleFnameChange}
+                name="firstName"
+                autoComplete="firstName"
+                onChange={handlefirstNameChange}
               />
             </Grid>
              <Grid item xs={12}>
@@ -110,12 +104,12 @@ export default function AddEmployee() {
                             variant="outlined"
                             required
                             fullWidth
-                            id="lname"
-                            value={lname}
+                            id="lastName"
+                            value={lastName}
                             label="Last Name"
-                            name="lname"
-                            autoComplete="lname"
-                            onChange={handleLnameChange}
+                            name="lastName"
+                            autoComplete="lastName"
+                            onChange={handlelastNameChange}
                           />
                         </Grid>
           </Grid>
@@ -137,9 +131,6 @@ export default function AddEmployee() {
             </Grid>
           </Grid>
         </form>
-        <Typography style={{ margin: 7 }} variant="body1">
-          Status: {message}
-        </Typography>
       </div>
     </Container>
   );
